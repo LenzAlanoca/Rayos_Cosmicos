@@ -2,102 +2,229 @@
 
 ##  Descripción General
 
-Este proyecto consiste en el desarrollo de un sistema web para la **visualización, procesamiento y monitoreo de datos provenientes de sensores científicos** utilizados en la carrera de Física de la Universidad Mayor de San Andrés (UMSA).
+Sistema integral web para la **visualización, procesamiento y monitoreo de datos** de radiación cósmica detectados por sensores científicos ubicados en la Universidad Mayor de San Andrés (UMSA).
 
-El sistema está diseñado para recolectar automáticamente datos generados por distintos dispositivos experimentales —como magnetómetros, detectores de partículas y sensores de neutrinos—, centralizarlos en un servidor y presentarlos a través de una interfaz web moderna, accesible y eficiente.
+**Versión:** 0.1.0-beta | **Estado:** En Desarrollo | **Última Actualización:** Marzo 22, 2026
 
-El enfoque del sistema se basa en una arquitectura de doble propósito:
+### 📊 Stack Tecnológico Moderno
+- **Frontend:** Vue.js 3 + Tailwind CSS + Chart.js (estética cielo nocturno)
+- **Backend:** PHP 8.1+ + Slim Framework + MySQL
+- **Arquitectura:** Modular y escalable con separación clara de responsabilidades
 
-*  **Portal público:** orientado a la visualización accesible de datos procesados.
-*  **Panel interno:** orientado al análisis técnico, monitoreo en tiempo real y gestión de dispositivos.
+El sistema recolecta automáticamente datos de dispositivos experimentales (detectores de partículas, magnetómetros, censores de radiación), los centraliza en servidor, los procesa y presenta a través de interfaz moderna con dos propósitos:
 
----
+*  **Portal Público:** Visualización accesible de datos procesados (sin autenticación)
+*  **Panel Interno:** Análisis técnico, monitoreo en tiempo real y gestión de sensores (autenticado)
 
-##  Objetivo del Sistema
+## 🛠️ Instalación Rápida
 
-Proporcionar una plataforma centralizada que permita:
+### Paso 1: Clonar y Navegar
+```bash
+cd Rayos_Cosmicos
+```
 
-* Visualizar datos científicos en tiempo (casi) real.
-* Facilitar la interpretación mediante gráficos y dashboards interactivos.
-* Procesar y transformar datos crudos en información útil.
-* Garantizar acceso público controlado sin comprometer la integridad de los datos.
-* Ofrecer herramientas internas para investigadores y administradores.
+### Paso 2: Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+# Abre http://localhost:5173 en navegador
+```
 
----
+### Paso 3: Backend (nueva terminal)
+```bash
+cd backend
+composer install
+cp .env.example .env
+# Edita .env (DB_HOST, DB_NAME, DB_USER, DB_PASS)
+php -S localhost:8000 -t public
+# Accede a http://localhost:8000/api/health
+```
 
-##  Arquitectura Funcional
-
-###  Portal Público
-
-El sistema ofrece una interfaz abierta al público sin necesidad de autenticación, donde se prioriza la accesibilidad y claridad de la información.
-
-**Características:**
-
-* Visualización de datos procesados mediante gráficos interactivos.
-* Indicadores del estado de sensores (activo/inactivo).
-* Consulta de datos históricos filtrados.
-* Exportación limitada de datos (CSV, JSON).
-* Contenido informativo sobre los experimentos y dispositivos.
-
->  No se exponen datos crudos ni funcionalidades administrativas en esta capa.
-
----
-
-###  Panel Interno (Administración y Análisis)
-
-El sistema cuenta con un módulo interno no visible desde la interfaz pública, accesible únicamente mediante autenticación.
-
-**Características:**
-
-* Dashboard avanzado con datos en tiempo real.
-* Acceso a datos crudos y completos.
-* Gestión de sensores (registro, configuración, activación/desactivación).
-* Procesamiento y limpieza de datos.
-* Sistema de alertas ante fallos o anomalías.
-* Exportación completa de datasets.
+Ver [docs/SETUP.md](docs/SETUP.md) para instrucciones detalladas.
 
 ---
 
-##  Flujo de Datos
-
-1. Los dispositivos físicos recolectan datos experimentales.
-2. Los datos son enviados automáticamente al servidor central.
-3. El sistema valida y almacena la información.
-4. Se realiza un proceso de transformación:
-
-   * Limpieza
-   * Normalización
-   * Agregación
-5. Se generan dos capas de datos:
-
-   * Datos procesados (para visualización pública)
-   * Datos crudos (para análisis interno)
-
----
-
-##  Stakeholders
+## 👥 Stakeholders
 
 | Stakeholder    | Rol                    | Prioridad | Expectativa                              |
 | -------------- | ---------------------- | --------- | ---------------------------------------- |
-| Product Owner  | Dirección del proyecto | Crítica   | Cumplimiento de visión y requerimientos  |
+| Product Owner  | Dirección del proyecto | Crítica   | Escalabilidad, documentación completa    |
 | Investigadores | Usuario experto        | Alta      | Precisión en procesamiento y análisis    |
-| Equipo IT      | Infraestructura        | Alta      | Seguridad, estabilidad, mantenibilidad   |
-| Estudiantes    | Usuario final          | Media     | Usabilidad y acceso rápido a información |
+| Equipo IT      | Infraestructura        | Alta      | Seguridad, estabilidad, modularidad      |
+| Público UMSA   | Usuario final          | Media     | Interfaz intuitiva y atractiva           |
+| Estudiantes    | Mantenimiento futuro   | Media     | Código bien documentado y estructurado   |
 
 ---
 
+## 🎯 Objetivos del Sistema
+
+✅ **Visualización en tiempo (casi) real** de datos cósmicos  
+✅ **Análisis mediante dashboards interactivos** con gráficos avanzados  
+✅ **Procesamiento automático** de datos crudos (limpieza, normalización)  
+✅ **Acceso público seguro** sin datos sensibles  
+✅ **Gestión interna completa** para investigadores y administradores  
+✅ **Exportación flexible** (CSV, JSON) para análisis independiente  
+✅ **Sistema de alertas** ante anomalías
+
+## 🏗️ Estructura del Proyecto (v0.1.0-beta)
+
+```
+Rayos_Cosmicos/
+├── frontend/                # Vue.js 3 + Tailwind CSS
+│   ├── src/
+│   │   ├── views/
+│   │   │   ├── public/      # Landing, Dashboard, Histórico, Info
+│   │   │   └── internal/    # Admin (futuro)
+│   │   ├── components/      # Componentes reutilizables
+│   │   ├── modules/         # Módulos funcionales
+│   │   ├── stores/          # Pinia (estado global)
+│   │   ├── api/             # Clientes HTTP
+│   │   └── assets/          # Estilos, imágenes
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── README.md            # Documentación frontend
+│
+├── backend/                 # PHP 8.1+ Slim Framework
+│   ├── src/
+│   │   ├── Modules/         # Módulos core
+│   │   │   ├── Ingestion/   # Recepción datos
+│   │   │   ├── Processing/  # Procesamiento
+│   │   │   ├── Storage/     # Persistencia BD
+│   │   │   ├── Sensors/     # Gestión CRUD
+│   │   │   └── Alerts/      # Sistema alertas
+│   │   ├── Config/          # Configuración BD, Logger
+│   │   └── Api/             # Rutas y handlers
+│   ├── public/index.php     # Punto entrada
+│   ├── composer.json
+│   ├── .env.example
+│   └── README.md            # Documentación backend
+│
+├── docs/                    # Documentación técnica
+│   ├── ARCHITECTURE.md      # Diagrama y diseño
+│   ├── SETUP.md             # Instalación paso a paso
+│   └── API.md               # Endpoints y ejemplos
+│
+└── README.md                # Este archivo
+```
+
+## 🚀 Inicio Rápido
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+# Acceder: http://localhost:5173
+```
+
+### Backend
+```bash
+cd backend
+composer install
+cp .env.example .env
+# Editar .env con tu BD
+php -S localhost:8000 -t public
+# API: http://localhost:8000/api
+```
+
+## 🎨 Características Implementadas (Beta)
+
+### ✅ Portal Público
+- **Landing Page** con presentación y stack tecnológico
+- **Dashboard en Vivo** con:
+  - Estado de sensores (activo/inactivo con indicadores)
+  - Gráficos interactivos (línea, área, dona)
+  - Estadísticas en tiempo real
+  - Filtros por sensor y rango de fechas
+  - Botón de exportación CSV
+- **Datos Históricos** con:
+  - Tabla de registros con paginación
+  - Filtros avanzados
+  - Descargas en CSV y JSON
+- **Información del Proyecto** con:
+  - Descripción de equipamiento
+  - Ubicación de sensores
+  - Metodología de recolección
+
+### ✅ Infraestructura Backend
+- API REST funcional (Slim Framework)
+- Endpoints públicos básicos
+- Estructura modular de 5 módulos principalesmodular
+- Logging con Monolog
+- Configuración con variables de entorno
+- CORS habilitado
+
+### 🔄 Próximas Fases
+- [ ] Integración real con MySQL
+- [ ] Panel Administrativo completo
+- [ ] Sistema de autenticación JWT
+- [ ] WebSockets para datos en vivo
+- [ ] Alertas por email/SMS
+- [ ] Dashboard de estadísticas avanzadas
+- [ ] Validación robusta
+- [ ] Tests automatizados
+
+## 📖 Documentación Completa
+
+| Documento | Contenido |
+|-----------|----------|
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Diagrama, patrones, flujo de datos |
+| [SETUP.md](docs/SETUP.md) | Instalación, configuración, BD |
+| [API.md](docs/API.md) | Endpoints, ejemplos cURL, Postman |
+| [frontend/README.md](frontend/README.md) | Componentes, convenciones, routing |
+| [backend/README.md](backend/README.md) | Módulos, servicios, migraciones |
+
+## 🎨 Estética y Diseño
+
+**Temática:** Cielo Nocturno y Cosmos  
+**Colores:** Azules profundos (#0f1b4a) a brillantes (#3d5aff)  
+**Fuentes:** System fonts + sans-serif  
+**Animaciones:** Parpadeo de estrellas, efectos de brillo
+
+El frontend está completamente estilizado con Tailwind CSS usando una paleta de colores personalizada que evoca la sensación de observar el cielo nocturno repleto de radiación cósmica.
+
+## 📞 Endpoints Principales
+
+**Públicos (sin auth):**
+```
+GET  /api/health               - Estado del servidor
+GET  /api/sensors              - Listar sensores
+GET  /api/data                 - Datos en vivo
+GET  /api/data/historical      - Histórico de datos
+POST /api/ingest               - Recibir datos de sensor
+```
+
+**Administrativos (auth requerida):**
+```
+POST   /api/admin/sensors      - Crear sensor
+PUT    /api/admin/sensors/:id  - Actualizar sensor
+DELETE /api/admin/sensors/:id  - Eliminar sensor
+GET    /api/admin/data/raw     - Datos crudos
+GET    /api/admin/alerts       - Listado alertas
+```
+
+Ver [API.md](docs/API.md) para documentación completa.
+
 ##  Stack Tecnológico
 
-**Frontend:**
+**Frontend (v3):**
+- Vue.js 3 (framework reactivo progresivo)
+- Vue Router 4 (enrutamiento)
+- Pinia 2 (gestión estado)
+- Tailwind CSS 3 (utilidadellos CSS)
+- Chart.js 4 (gráficos interactivos)
+- Vite 5 (build tool moderno)
+- Axios (cliente HTTP)
 
-* Vue.js
-* Librerías de gráficos (Chart.js / ECharts)
-* Diseño responsivo
-
-**Backend (planificado):**
-
-* Servidor central (PHP inicialmente)
-* API REST
+**Backend (PHP):**
+- PHP 8.1+ (lenguaje servidor)
+- Slim Framework 4 (micro-framework)
+- MySQL 5.7+ (base de datos)
+- PDO (abstracción BD)
+- Monolog 3 (logging)
+- Composer (gestor dependencias)
 * WebSockets o polling para datos en tiempo real
 
 **Base de Datos:**

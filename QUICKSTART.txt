@@ -1,0 +1,179 @@
+# 🎯 Guía Rápida - Rayos Cósmicos v0.1.0-beta
+
+## 🚀 En 3 minutos
+
+```bash
+# Terminal 1 - Frontend
+cd frontend && npm install && npm run dev
+# Abre: http://localhost:5173
+
+# Terminal 2 - Backend
+cd backend && composer install && php -S localhost:8000 -t public
+# Abre: http://localhost:8000/api/health
+```
+
+## 📍 URLs Principales
+
+| Recurso | URL | Notas |
+|---------|-----|-------|
+| **Landing Page** | http://localhost:5173 | Página inicio con info del proyecto |
+| **Portal Público** | http://localhost:5173/portal | Dashboard en vivo, gráficos |
+| **API Health** | http://localhost:8000/api/health | Ping al servidor |
+| **API Sensores** | http://localhost:8000/api/sensors | Lista sensores disponibles |
+| **API Datos Vivos** | http://localhost:8000/api/data | Últimas lecturas |
+
+## 🎨 Interfaz
+- **Tema:** Cielo nocturno (azules oscuros → brillantes)
+- **Responsive:** Funciona en mobile, tablet, desktop
+- **Componentes:** Gráficos interactivos, tablas filtradas, estadísticas
+
+## 📊 Datos de Prueba
+
+**Sensores:**
+- ✅ Sensor α (Lab Principal)
+- ✅ Sensor β (Azotea)
+- ✅ Sensor γ (Sótano)
+- ❌ Sensor δ (Mantenimiento)
+
+**Métricas:**
+- 12,847 detecciones totales hoy
+- Promedio 456 CPM/hora
+- 3 de 4 sensores activos
+
+## 🔧 Archivos Clave
+
+```
+Rayos_Cosmicos/
+├── README.md              ← Descripción general
+├── QUICKSTART.md          ← Este archivo (inicio rápido)
+├── DEVELOPER.md           ← Guía desarrollo
+├── frontend/
+│   ├── src/views/public/Landing.vue      ← Landing page
+│   ├── src/views/public/Dashboard.vue    ← Dashboard público
+│   ├── src/components/                   ← Componentes Vue
+│   └── tailwind.config.js                ← Estilos personalizados
+├── backend/
+│   ├── public/index.php                  ← Punto entrada API
+│   ├── src/Modules/                      ← Módulos negocio
+│   └── .env.example                      ← Config
+└── docs/
+    ├── ARCHITECTURE.md     ← Diagrama arquitectura
+    ├── SETUP.md           ← Instalación detallada
+    └── API.md             ← Documentación endpoints
+```
+
+## 💻 Comandos Útiles
+
+### Frontend
+```bash
+npm run dev        # Servir con hot reload
+npm run build      # Compilar para producción
+npm run preview    # Previewizar build
+npm run lint       # Verificar código
+```
+
+### Backend
+```bash
+php -S localhost:8000 -t public    # Servir localmente
+composer install                    # Instalar dependencias
+composer test                       # Ejecutar tests
+phpcs src/                         # Verificar código
+```
+
+## 🌐 Ejemplos API cURL
+
+```bash
+# Health check
+curl http://localhost:8000/api/health
+
+# Obtener sensores
+curl http://localhost:8000/api/sensors
+
+# Obtener datos en vivo
+curl http://localhost:8000/api/data
+
+# Obtener histórico (últimos 7 días)
+curl "http://localhost:8000/api/data/historical?sensor_id=1&start_date=2026-03-15&end_date=2026-03-22"
+
+# Enviar dato (como si fuera sensor)
+curl -X POST http://localhost:8000/api/ingest \
+  -H "Content-Type: application/json" \
+  -d '{"sensor_id":1,"value":245,"unit":"CPM"}'
+
+# Exportar CSV
+curl "http://localhost:8000/api/data/export?format=csv&sensor_id=1" > datos.csv
+```
+
+## 🔍 Explorar Interfaz
+
+1. **Landing Page**: Información del proyecto + stack tech
+2. **Dashboard**: Gráficos, estado sensores, estadísticas
+3. **Histórico**: Tabla de datos con filtros y descargas
+4. **Información**: Detalles sobre equipamiento y metodología
+
+## 🛠️ Stack Resumen
+
+| Capa | Tecnología | Versión |
+|------|-----------|---------|
+| **UI** | Vue.js + Tailwind | 3.3 / 3.3 |
+| **API** | PHP Slim | 8.1 / 4.12 |
+| **BD** | MySQL | 5.7+ |
+| **Build** | Vite + Composer | 5.0 / 2.x |
+
+## 📚 Documentos Importantes
+
+- **Inicio Rápido:** Este archivo (3 min)
+- **Configuración Detallada:** [SETUP.md](docs/SETUP.md) (15 min)
+- **Guía Desarrollo:** [DEVELOPER.md](DEVELOPER.md) (30 min)
+- **Arquitectura Sistema:** [ARCHITECTURE.md](docs/ARCHITECTURE.md) (análisis)
+- **API Endpoints:** [API.md](docs/API.md) (reference)
+
+## 🚨 Troubleshooting
+
+| Error | Solución |
+|-------|----------|
+| `Port 5173 in use` | `npm run dev -- --port 5174` |
+| `Port 8000 in use` | `php -S localhost:8001 -t public` |
+| `Cannot find module` | `rm -rf node_modules && npm install` |
+| `PDOException` | Checks `.env` BD credenciales |
+| `CORS error` | Verifica proxy en `vite.config.js` |
+
+## ✨ Features Implementados
+
+✅ Landing page con estética cosmos  
+✅ Dashboard público con gráficos  
+✅ Tabla histórica con filtros  
+✅ Info del proyecto  
+✅ API REST funcional  
+✅ Módulos backend modularizados  
+✅ Documentación completa  
+
+## ⏳ Próximas Fases
+
+1. **Integración BD Real** - Conectar con MySQL
+2. **Panel Administrativo** - CRUD sensores, análisis
+3. **Autenticación JWT** - Login/Logout
+4. **WebSockets** - Datos en tiempo real
+5. **Alertas** - Email/SMS ante anomalías
+6. **Tests** - Unit + E2E testing
+
+## 🎓 Aprender Más
+
+- Vue 3 Guide: https://vuejs.org/guide/
+- Tailwind Docs: https://tailwindcss.com/docs
+- Slim Docs: https://www.slimframework.com/docs/v4/
+- REST API Design: https://restfulapi.net/
+
+## 📞 Contacto / Soporte
+
+**Preguntas sobre:**
+- **Arquitectura** → Ver [ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- **Setup/Config** → Ver [SETUP.md](docs/SETUP.md)
+- **API** → Ver [API.md](docs/API.md)
+- **Desarrollo** → Ver [DEVELOPER.md](DEVELOPER.md)
+
+---
+
+**Última actualización:** Marzo 22, 2026  
+**Versión:** 0.1.0-beta  
+**Estado:** 🟡 En Desarrollo
