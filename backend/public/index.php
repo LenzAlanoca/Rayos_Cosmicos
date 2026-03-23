@@ -44,16 +44,19 @@ $app->add(function ($request, $handler) {
 
 // Rutas públicas
 $app->get('/api/health', function (Request $request, Response $response) {
-    return $response->withStatus(200)->write(json_encode([
+    $response = $response->withHeader('Content-Type', 'application/json');
+    $response->getBody()->write(json_encode([
         'status' => 'ok',
         'version' => $_ENV['APP_VERSION'] ?? '0.1.0-beta',
         'timestamp' => date('Y-m-d H:i:s')
     ]));
+    return $response;
 });
 
 $app->get('/api/sensors', function (Request $request, Response $response) {
     // Placeholder - será implementado con el módulo de sensores
-    return $response->withStatus(200)->write(json_encode([
+    $response = $response->withHeader('Content-Type', 'application/json');
+    $response->getBody()->write(json_encode([
         'data' => [
             ['id' => 1, 'name' => 'Sensor α', 'location' => 'Lab Principal', 'active' => true],
             ['id' => 2, 'name' => 'Sensor β', 'location' => 'Azotea', 'active' => true],
@@ -61,16 +64,19 @@ $app->get('/api/sensors', function (Request $request, Response $response) {
             ['id' => 4, 'name' => 'Sensor δ', 'location' => 'Lab Secundario', 'active' => false]
         ]
     ]));
+    return $response;
 });
 
 $app->get('/api/data', function (Request $request, Response $response) {
     // Placeholder - será implementado con el módulo de datos
-    return $response->withStatus(200)->write(json_encode([
+    $response = $response->withHeader('Content-Type', 'application/json');
+    $response->getBody()->write(json_encode([
         'data' => [
             ['timestamp' => date('Y-m-d H:i:s'), 'sensor_id' => 1, 'value' => 245, 'unit' => 'CPM'],
             ['timestamp' => date('Y-m-d H:i:s'), 'sensor_id' => 2, 'value' => 189, 'unit' => 'CPM'],
         ]
     ]));
+    return $response;
 });
 
 // Manejo de errores
