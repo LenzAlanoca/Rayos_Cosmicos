@@ -116,7 +116,7 @@ El desarrollo del sistema sigue una estrategia **frontend-first**, permitiendo:
 
 ---
 
-## 🔐 Seguridad y Acceso
+##  Seguridad y Acceso
 
 * El portal público no incluye opciones visibles de autenticación.
 * El panel interno se encuentra desacoplado y protegido mediante autenticación.
@@ -124,13 +124,13 @@ El desarrollo del sistema sigue una estrategia **frontend-first**, permitiendo:
 
 ---
 
-## 📈 Alcance
+##  Alcance
 
 Este sistema busca no solo cubrir necesidades actuales de monitoreo, sino también servir como base escalable para futuros proyectos científicos dentro de la universidad.
 
 ---
 
-## 🤝 Contribución
+##  Contribución
 
 Proyecto en desarrollo académico. La colaboración está sujeta a lineamientos del equipo y la institución.
 
