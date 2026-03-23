@@ -13,7 +13,13 @@
       <div class="navbar-inner">
         <div class="navbar-brand">
           <div class="brand-icon">
-            <span class="brand-icon-glyph">🌌</span>
+            <!-- Atom / Cosmic SVG -->
+            <svg class="brand-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="20" cy="20" rx="16" ry="7" stroke="rgba(180,210,255,0.8)" stroke-width="1.5"/>
+              <ellipse cx="20" cy="20" rx="16" ry="7" stroke="rgba(180,210,255,0.8)" stroke-width="1.5" transform="rotate(60 20 20)"/>
+              <ellipse cx="20" cy="20" rx="16" ry="7" stroke="rgba(180,210,255,0.8)" stroke-width="1.5" transform="rotate(120 20 20)"/>
+              <circle cx="20" cy="20" r="3" fill="rgba(180,210,255,0.95)"/>
+            </svg>
             <div class="brand-icon-pulse"></div>
           </div>
           <div class="brand-text">
@@ -28,7 +34,7 @@
           <a href="#sensores" class="nav-link">Sensores</a>
           <router-link to="/portal" class="nav-cta">
             <span>Acceder al Portal</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </router-link>
         </div>
       </div>
@@ -74,12 +80,12 @@
         <!-- CTAs -->
         <div class="hero-ctas">
           <router-link to="/portal" class="cta-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 16 12 12 16"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
             Explorar Portal Público
           </router-link>
           <a href="#caracteristicas" class="cta-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            Descubrir más
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            Conocer más
           </a>
         </div>
       </div>
@@ -92,7 +98,18 @@
         <div class="detector-ring detector-ring-2"></div>
         <div class="detector-ring detector-ring-3"></div>
         <div class="detector-core">
-          <span class="detector-icon">☢</span>
+          <!-- Radiation / Atom SVG -->
+          <svg class="detector-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="5" fill="rgba(160,200,255,0.9)"/>
+            <path d="M24 4 C14 4 4 14 4 24" stroke="rgba(140,190,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 4 C34 4 44 14 44 24" stroke="rgba(140,190,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 24 C4 34 14 44 24 44" stroke="rgba(100,160,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M44 24 C44 34 34 44 24 44" stroke="rgba(100,160,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="24" cy="6" r="2.5" fill="rgba(180,220,255,0.8)"/>
+            <circle cx="42" cy="30" r="2.5" fill="rgba(180,220,255,0.8)"/>
+            <circle cx="6" cy="30" r="2.5" fill="rgba(180,220,255,0.8)"/>
+            <circle cx="24" cy="42" r="2" fill="rgba(120,180,255,0.5)"/>
+          </svg>
           <div class="detector-scan"></div>
         </div>
         <div class="detector-data">
@@ -113,7 +130,7 @@
         <div class="features-grid">
           <div class="feature-card" v-for="feature in features" :key="feature.title">
             <div class="feature-icon-wrap">
-              <span class="feature-icon">{{ feature.icon }}</span>
+              <div class="feature-icon-svg" v-html="feature.svg"></div>
               <div class="feature-icon-glow"></div>
             </div>
             <h3 class="feature-title">{{ feature.title }}</h3>
@@ -136,7 +153,12 @@
         <div class="tech-grid">
           <div class="tech-card tech-card-frontend">
             <div class="tech-card-header">
-              <div class="tech-card-icon">🎨</div>
+              <div class="tech-card-icon-svg">
+                <!-- Monitor / Code icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
               <h3 class="tech-card-title">Frontend</h3>
             </div>
             <div class="tech-items">
@@ -152,7 +174,15 @@
 
           <div class="tech-card tech-card-backend">
             <div class="tech-card-header">
-              <div class="tech-card-icon">⚙️</div>
+              <div class="tech-card-icon-svg">
+                <!-- Server icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                  <line x1="6" y1="6" x2="6.01" y2="6"/>
+                  <line x1="6" y1="18" x2="6.01" y2="18"/>
+                </svg>
+              </div>
               <h3 class="tech-card-title">Backend</h3>
             </div>
             <div class="tech-items">
@@ -168,7 +198,14 @@
 
           <div class="tech-card tech-card-science">
             <div class="tech-card-header">
-              <div class="tech-card-icon">🔬</div>
+              <div class="tech-card-icon-svg">
+                <!-- Zap / Particle icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="2"/>
+                  <path d="M12 2v3m0 14v3M2 12h3m14 0h3"/>
+                  <path d="M4.93 4.93l2.12 2.12m9.9 9.9 2.12 2.12M19.07 4.93l-2.12 2.12M7.05 16.95l-2.12 2.12"/>
+                </svg>
+              </div>
               <h3 class="tech-card-title">Ciencia</h3>
             </div>
             <div class="tech-items">
@@ -219,11 +256,23 @@
     <section class="final-cta-section">
       <div class="final-cta-glow"></div>
       <div class="final-cta-content">
-        <div class="final-cta-icon">🌌</div>
-        <h2 class="final-cta-title">¿Listo para explorar el cosmos?</h2>
+        <div class="final-cta-icon-wrap">
+          <svg class="final-cta-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" stroke="rgba(100,160,255,0.25)" stroke-width="1"/>
+            <circle cx="32" cy="32" r="18" stroke="rgba(100,160,255,0.35)" stroke-width="1"/>
+            <ellipse cx="32" cy="32" rx="26" ry="10" stroke="rgba(140,200,255,0.45)" stroke-width="1.5"/>
+            <ellipse cx="32" cy="32" rx="26" ry="10" stroke="rgba(140,200,255,0.45)" stroke-width="1.5" transform="rotate(60 32 32)"/>
+            <ellipse cx="32" cy="32" rx="26" ry="10" stroke="rgba(140,200,255,0.35)" stroke-width="1.5" transform="rotate(120 32 32)"/>
+            <circle cx="32" cy="32" r="5" fill="rgba(160,210,255,0.9)"/>
+            <circle cx="32" cy="6" r="3" fill="rgba(200,230,255,0.8)"/>
+            <circle cx="55.5" cy="45" r="3" fill="rgba(200,230,255,0.8)"/>
+            <circle cx="8.5" cy="45" r="3" fill="rgba(200,230,255,0.8)"/>
+          </svg>
+        </div>
+        <h2 class="final-cta-title">Explora el universo en datos</h2>
         <p class="final-cta-desc">Accede al portal público para visualizar datos en tiempo real de nuestros detectores de rayos cósmicos.</p>
         <router-link to="/portal" class="cta-primary cta-large">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
           Ingresar al Portal
         </router-link>
       </div>
@@ -233,7 +282,15 @@
     <footer class="landing-footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="footer-logo">🌌 RAYOS CÓSMICOS · UMSA</span>
+          <div class="footer-logo-row">
+            <svg class="footer-atom" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="rgba(140,180,255,0.7)" stroke-width="1.2"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="rgba(140,180,255,0.7)" stroke-width="1.2" transform="rotate(60 12 12)"/>
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="rgba(140,180,255,0.7)" stroke-width="1.2" transform="rotate(120 12 12)"/>
+              <circle cx="12" cy="12" r="2" fill="rgba(160,200,255,0.9)"/>
+            </svg>
+            <span class="footer-logo">RAYOS CÓSMICOS · UMSA</span>
+          </div>
           <p class="footer-tagline">Carrera de Física · Laboratorio de Astrofísica</p>
         </div>
         <div class="footer-links">
@@ -433,12 +490,36 @@ export default defineComponent({
     ])
 
     const features = ref([
-      { icon: '📊', title: 'Visualización en Tiempo Real', desc: 'Gráficos interactivos con Chart.js que se actualizan automáticamente con los datos del detector.' },
-      { icon: '🔬', title: 'Análisis Científico', desc: 'Herramientas avanzadas para filtrar, correlacionar y analizar eventos de radiación cósmica.' },
-      { icon: '📥', title: 'Exportación de Datos', desc: 'Descarga los datasets en CSV o JSON para análisis independiente con Python, MATLAB, ROOT.' },
-      { icon: '🛡️', title: 'Acceso Seguro', desc: 'Panel administrativo con autenticación JWT para gestión avanzada de sensores y alertas.' },
-      { icon: '📡', title: 'Gestión de Sensores', desc: 'Monitoreo del estado, configuración y mantenimiento de cada detector en tiempo real.' },
-      { icon: '🔔', title: 'Sistema de Alertas', desc: 'Notificaciones automáticas ante anomalías en el flujo de partículas o fallos en sensores.' },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+        title: 'Visualización en Tiempo Real',
+        desc: 'Gráficos interactivos con Chart.js que se actualizan automáticamente con los datos del detector.'
+      },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        title: 'Análisis Científico',
+        desc: 'Herramientas avanzadas para filtrar, correlacionar y analizar eventos de radiación cósmica.'
+      },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+        title: 'Exportación de Datos',
+        desc: 'Descarga los datasets en CSV o JSON para análisis independiente con Python, MATLAB, ROOT.'
+      },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        title: 'Acceso Seguro',
+        desc: 'Panel administrativo con autenticación JWT para gestión avanzada de sensores y alertas.'
+      },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>',
+        title: 'Gestión de Sensores',
+        desc: 'Monitoreo del estado, configuración y mantenimiento de cada detector en tiempo real.'
+      },
+      {
+        svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>',
+        title: 'Sistema de Alertas',
+        desc: 'Notificaciones automáticas ante anomalías en el flujo de partículas o fallos en sensores.'
+      },
     ])
 
     const techFrontend = ref([
@@ -605,8 +686,9 @@ export default defineComponent({
   box-shadow: 0 0 20px rgba(61, 90, 255, 0.4);
 }
 
-.brand-icon-glyph {
-  font-size: 22px;
+.brand-svg {
+  width: 26px;
+  height: 26px;
   position: relative;
   z-index: 1;
 }
@@ -684,14 +766,14 @@ export default defineComponent({
 .hero-section {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 4rem;
+  padding: 3rem 2rem 3rem;
   max-width: 1280px;
   margin: 0 auto;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .hero-glow {
@@ -702,37 +784,38 @@ export default defineComponent({
 }
 
 .hero-glow-1 {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, rgba(61, 90, 255, 0.15), transparent 70%);
-  top: 10%;
-  left: -10%;
+  top: 5%;
+  left: -8%;
 }
 
 .hero-glow-2 {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle, rgba(80, 200, 255, 0.1), transparent 70%);
-  bottom: 10%;
-  right: -5%;
+  bottom: 5%;
+  right: -4%;
 }
 
 .hero-content {
   flex: 1;
-  max-width: 650px;
+  max-width: 600px;
+  min-width: 0;
 }
 
 .status-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 5px 14px;
   background: rgba(61, 90, 255, 0.12);
   border: 1px solid rgba(61, 90, 255, 0.3);
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: rgba(180, 210, 255, 0.9);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   letter-spacing: 0.03em;
 }
 
@@ -752,13 +835,13 @@ export default defineComponent({
 
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(1.9rem, 3.5vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  line-height: 1.12;
+  margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.15em;
 }
 
 .hero-title-line1,
@@ -794,10 +877,10 @@ export default defineComponent({
 }
 
 .hero-description {
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 0.97rem;
+  line-height: 1.75;
   color: rgba(180, 200, 255, 0.8);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .hero-description strong {
@@ -807,17 +890,17 @@ export default defineComponent({
 /* Stats */
 .hero-stats {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
   flex-wrap: wrap;
 }
 
 .stat-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(61, 90, 255, 0.2);
-  border-radius: 12px;
-  padding: 14px 20px;
-  min-width: 100px;
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 90px;
   text-align: center;
   backdrop-filter: blur(10px);
   transition: border-color 0.2s, transform 0.2s;
@@ -830,10 +913,10 @@ export default defineComponent({
 
 .stat-value {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #a5c8ff;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .stat-label {
@@ -852,15 +935,15 @@ export default defineComponent({
 .cta-primary {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
+  gap: 8px;
+  padding: 11px 24px;
   background: linear-gradient(135deg, #1e36c4 0%, #3d5aff 100%);
   color: #fff;
   text-decoration: none;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
   font-weight: 600;
-  box-shadow: 0 0 30px rgba(61, 90, 255, 0.4), 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 24px rgba(61, 90, 255, 0.4), 0 4px 12px rgba(0,0,0,0.3);
   transition: all 0.25s;
   border: 1px solid rgba(120, 150, 255, 0.3);
 }
@@ -875,12 +958,12 @@ export default defineComponent({
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 11px 24px;
   background: rgba(255,255,255,0.05);
   color: rgba(180, 210, 255, 0.9);
   text-decoration: none;
-  border-radius: 12px;
-  font-size: 0.95rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
   font-weight: 500;
   border: 1px solid rgba(61, 90, 255, 0.25);
   backdrop-filter: blur(8px);
@@ -895,16 +978,16 @@ export default defineComponent({
 }
 
 .cta-large {
-  padding: 16px 36px;
-  font-size: 1.05rem;
+  padding: 13px 32px;
+  font-size: 0.95rem;
 }
 
 /* ===================== DETECTOR VISUAL ===================== */
 .hero-visual {
   position: relative;
   flex-shrink: 0;
-  width: 340px;
-  height: 340px;
+  width: 280px;
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -918,23 +1001,23 @@ export default defineComponent({
 }
 
 .detector-ring-1 {
-  width: 320px;
-  height: 320px;
+  width: 260px;
+  height: 260px;
   border-color: rgba(61, 90, 255, 0.3);
   animation-duration: 20s;
 }
 
 .detector-ring-2 {
-  width: 240px;
-  height: 240px;
+  width: 195px;
+  height: 195px;
   border-color: rgba(80, 200, 255, 0.2);
   animation-duration: 14s;
   animation-direction: reverse;
 }
 
 .detector-ring-3 {
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   border-color: rgba(61, 90, 255, 0.25);
   animation-duration: 9s;
 }
@@ -979,14 +1062,15 @@ export default defineComponent({
   overflow: hidden;
 }
 
-.detector-icon {
-  font-size: 2rem;
-  animation: detectorPulse 2s ease-in-out infinite;
+.detector-svg {
+  width: 48px;
+  height: 48px;
+  animation: detectorPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes detectorPulse {
   0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 1; transform: scale(1.08); }
 }
 
 .detector-scan {
@@ -1029,14 +1113,14 @@ export default defineComponent({
 .section-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   position: relative;
   z-index: 10;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-tag {
@@ -1054,10 +1138,10 @@ export default defineComponent({
 
 .section-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 700;
   color: #f0f4ff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .section-subtitle {
@@ -1077,15 +1161,15 @@ export default defineComponent({
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
 .feature-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(61, 90, 255, 0.14);
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 1.5rem;
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
@@ -1113,15 +1197,40 @@ export default defineComponent({
 
 .feature-icon-wrap {
   position: relative;
-  width: 56px;
-  height: 56px;
-  margin-bottom: 1.25rem;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.1rem;
+  background: rgba(61, 90, 255, 0.1);
+  border: 1px solid rgba(61, 90, 255, 0.2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s;
 }
 
-.feature-icon {
-  font-size: 2.2rem;
-  display: block;
-  line-height: 56px;
+.feature-card:hover .feature-icon-wrap {
+  background: rgba(61, 90, 255, 0.18);
+  border-color: rgba(100, 150, 255, 0.4);
+}
+
+.feature-icon-svg {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon-svg svg {
+  width: 28px;
+  height: 28px;
+  stroke: rgba(140, 190, 255, 0.85);
+  transition: stroke 0.3s;
+}
+
+.feature-card:hover .feature-icon-svg svg {
+  stroke: rgba(180, 220, 255, 1);
 }
 
 .feature-icon-glow {
@@ -1174,15 +1283,15 @@ export default defineComponent({
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
 }
 
 .tech-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(61, 90, 255, 0.15);
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 1.5rem;
   backdrop-filter: blur(10px);
   transition: all 0.3s;
 }
@@ -1359,7 +1468,7 @@ export default defineComponent({
   position: relative;
   z-index: 10;
   border-top: 1px solid rgba(61, 90, 255, 0.1);
-  padding: 8rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
   overflow: hidden;
 }
@@ -1382,8 +1491,8 @@ export default defineComponent({
 }
 
 .final-cta-icon {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
   animation: floatIcon 3s ease-in-out infinite;
 }
 
@@ -1394,17 +1503,17 @@ export default defineComponent({
 
 .final-cta-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #f0f4ff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .final-cta-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: rgba(160, 190, 255, 0.7);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 /* ===================== FOOTER ===================== */
@@ -1464,21 +1573,34 @@ export default defineComponent({
 }
 
 /* ===================== RESPONSIVE ===================== */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
+  .hero-visual {
+    width: 240px;
+    height: 240px;
+  }
+
+  .detector-ring-1 { width: 220px; height: 220px; }
+  .detector-ring-2 { width: 165px; height: 165px; }
+  .detector-ring-3 { width: 110px; height: 110px; }
+}
+
+@media (max-width: 860px) {
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding-top: 4rem;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+    min-height: auto;
   }
 
   .hero-visual {
-    width: 260px;
-    height: 260px;
+    width: 200px;
+    height: 200px;
   }
 
-  .detector-ring-1 { width: 240px; height: 240px; }
-  .detector-ring-2 { width: 180px; height: 180px; }
-  .detector-ring-3 { width: 120px; height: 120px; }
+  .detector-ring-1 { width: 185px; height: 185px; }
+  .detector-ring-2 { width: 138px; height: 138px; }
+  .detector-ring-3 { width: 92px; height: 92px; }
 
   .hero-ctas, .hero-stats {
     justify-content: center;
@@ -1494,11 +1616,24 @@ export default defineComponent({
     flex-direction: column;
     text-align: center;
   }
+
+  .section-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .features-grid,
+  .tech-grid,
+  .sensors-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
   .navbar-inner { padding: 0 1rem; }
-  .hero-stats { gap: 0.75rem; }
-  .stat-card { min-width: 80px; padding: 10px 14px; }
+  .hero-stats { gap: 0.5rem; }
+  .stat-card { min-width: 75px; padding: 8px 12px; }
+  .brand-text { display: none; }
+  .section-container { padding: 2.5rem 1rem; }
+  .hero-section { padding: 2rem 1rem; }
 }
 </style>
