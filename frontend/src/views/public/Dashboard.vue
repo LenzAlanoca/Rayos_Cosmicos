@@ -1,5 +1,18 @@
 <template>
-  <div class="page-shell space-y-6">
+  <div class="page-shell space-y-6 section-card">
+    <section class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_20px_60px_rgba(15,27,74,0.14)]">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-sky-dark-50">Dashboard Público</h1>
+          <p class="text-sky-dark-300 mt-2 max-w-2xl">Monitorea el estado de los detectores y consulta las estadísticas más recientes del sistema de rayos cósmicos.</p>
+        </div>
+        <div class="inline-flex items-center gap-3 rounded-2xl bg-sky-dark-950/70 px-4 py-3 border border-sky-dark-700">
+          <span class="text-cyan-300 text-sm uppercase tracking-[0.24em]">Actualizado</span>
+          <span class="text-sky-dark-400 text-sm">hace unos segundos</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Estado de Sensores -->
     <section>
       <h2 class="text-2xl font-bold text-sky-dark-50 mb-4">Estado de Sensores</h2>

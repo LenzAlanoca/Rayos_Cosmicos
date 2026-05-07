@@ -1,7 +1,15 @@
 <template>
-  <div class="page-shell space-y-6">
-    <div class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_24px_60px_rgba(15,27,74,0.18)]">
-      <h2 class="text-2xl font-bold text-sky-dark-50 mb-6">Información del Proyecto</h2>
+  <div class="page-shell space-y-6 section-card">
+    <section class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_24px_60px_rgba(15,27,74,0.18)]">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-8">
+        <div>
+          <h1 class="text-3xl font-bold text-sky-dark-50">Información del Proyecto</h1>
+          <p class="text-sky-dark-300 mt-2 max-w-2xl">Conoce el propósito, los sensores y la metodología de recolección detrás del sistema de monitoreo de rayos cósmicos.</p>
+        </div>
+        <div class="rounded-2xl bg-sky-dark-950/70 px-4 py-3 border border-sky-dark-700 text-sky-dark-300 text-sm">
+          Equipo: <span class="text-cyan-300 font-semibold">Física UMSA</span>
+        </div>
+      </div>
 
       <!-- Descripción general -->
       <div class="mb-8">
@@ -106,7 +114,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 

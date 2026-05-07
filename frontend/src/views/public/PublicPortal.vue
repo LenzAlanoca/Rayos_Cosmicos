@@ -1,42 +1,45 @@
 <template>
-  <div class="public-portal min-h-screen">
+  <div class="public-portal min-h-screen portal-shell">
     <!-- Navbar con navegación del portal -->
-    <nav class="sticky top-0 z-40 glass-effect border-b border-sky-dark-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div class="flex justify-between items-center">
+    <nav class="sticky top-0 z-40 glass-effect border-b border-sky-dark-700 backdrop-blur-xl bg-sky-dark-950/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <router-link to="/" class="flex items-center gap-3 hover:opacity-80 transition">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-dark-400 to-sky-dark-600 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-dark-500 to-sky-dark-700 flex items-center justify-center shadow-lg shadow-sky-dark-950/20">
               <span class="text-white text-sm">🌌</span>
             </div>
-            <span class="font-bold text-sky-dark-50">RAYOS CÓSMICOS</span>
+            <div>
+              <div class="font-bold text-sky-dark-50">RAYOS CÓSMICOS</div>
+              <div class="text-sky-dark-300 text-xs">UMSA · Portal Público</div>
+            </div>
           </router-link>
 
-          <div class="flex gap-6 md:gap-8 items-center">
+          <div class="flex flex-wrap gap-4 items-center justify-end">
             <router-link 
               to="/portal/dashboard" 
-              class="text-sky-dark-300 hover:text-sky-dark-50 transition font-medium"
-              :class="{ 'text-sky-dark-50 border-b-2 border-sky-dark-500': isActive('public-dashboard') }"
+              class="portal-nav-link font-medium"
+              :class="{ active: isActive('public-dashboard') }"
             >
               Dashboard
             </router-link>
             <router-link 
               to="/portal/historico" 
-              class="text-sky-dark-300 hover:text-sky-dark-50 transition font-medium"
-              :class="{ 'text-sky-dark-50 border-b-2 border-sky-dark-500': isActive('public-historico') }"
+              class="portal-nav-link font-medium"
+              :class="{ active: isActive('public-historico') }"
             >
               Histórico
             </router-link>
             <router-link 
               to="/portal/info" 
-              class="text-sky-dark-300 hover:text-sky-dark-50 transition font-medium"
-              :class="{ 'text-sky-dark-50 border-b-2 border-sky-dark-500': isActive('public-info') }"
+              class="portal-nav-link font-medium"
+              :class="{ active: isActive('public-info') }"
             >
               Información
             </router-link>
             <router-link 
               to="/login"
-              class="text-sky-dark-300 hover:text-sky-dark-50 transition font-medium"
-              :class="{ 'text-sky-dark-50 border-b-2 border-sky-dark-500': isActive('login') }"
+              class="portal-nav-link font-medium"
+              :class="{ active: isActive('login') }"
             >
               Iniciar sesión
             </router-link>
@@ -46,49 +49,48 @@
     </nav>
 
     <!-- Contenido del portal -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="page-shell max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <!-- Mensaje de bienvenida en la primera vista -->
-      <div v-if="isFirstView" class="mb-8">
-        <div class="glass-effect rounded-3xl p-8 border-2 border-sky-dark-500/40 shadow-[0_20px_80px_rgba(15,27,74,0.25)]">
-          <div class="grid gap-6 lg:grid-cols-[1.5fr_1fr] items-center">
-            <div>
-              <h1 class="text-3xl md:text-4xl font-bold text-sky-dark-50 mb-4 leading-tight">
-                Bienvenido al Portal Público
-              </h1>
-              <p class="text-sky-dark-300 text-lg mb-6 leading-relaxed">
-                Explora visualizaciones en tiempo real de los datos de rayos cósmicos.
-                Aquí puedes ver el dashboard, consultar histórico y acceder a información técnica sin necesidad de iniciar sesión.
-              </p>
-              <div class="flex flex-col sm:flex-row gap-4">
-                <router-link 
-                  to="/portal/dashboard"
-                  class="px-5 py-3 bg-gradient-to-r from-sky-dark-500 to-sky-dark-600 rounded-full text-white font-semibold text-center hover:shadow-xl hover:shadow-sky-dark-500/30 transition"
-                >
-                  Ver Dashboard en Vivo
-                </router-link>
-                <router-link 
-                  to="/login"
-                  class="px-5 py-3 border border-sky-dark-500 rounded-full text-sky-dark-100 font-semibold text-center hover:bg-sky-dark-700/60 transition"
-                >
-                  Iniciar sesión
-                </router-link>
-              </div>
+      <div v-if="isFirstView" class="mb-8 section-card">
+        <div class="section-header">
+          <span class="section-tag">Portal Público</span>
+          <h1 class="section-title">Bienvenido al Portal de Rayos Cósmicos</h1>
+          <p class="section-subtitle">Accede a las visualizaciones, el histórico y la información técnica con una experiencia consistente y moderna.</p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr] items-start">
+          <div>
+            <p class="text-sky-dark-300 text-lg leading-relaxed mb-6">
+              Explora datos del sistema de forma ágil, sin necesidad de iniciar sesión, y revisa el estado de los sensores en tiempo real.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <router-link 
+                to="/portal/dashboard"
+                class="cta-button cta-primary"
+              >
+                Ver Dashboard
+              </router-link>
+              <router-link 
+                to="/login"
+                class="cta-button cta-secondary"
+              >
+                Iniciar sesión
+              </router-link>
             </div>
-            <div class="portal-hero-panel glass-effect rounded-3xl p-6 border border-sky-dark-500/30">
-              <div class="text-sky-dark-50 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Panel del portal</div>
-              <div class="space-y-4">
-                <div class="rounded-2xl bg-sky-dark-950/70 p-4">
-                  <div class="text-sky-dark-100 text-xl font-bold">Dashboard</div>
-                  <div class="text-sky-dark-400 text-sm">Visualiza detecciones en tiempo real.</div>
-                </div>
-                <div class="rounded-2xl bg-sky-dark-950/70 p-4">
-                  <div class="text-sky-dark-100 text-xl font-bold">Histórico</div>
-                  <div class="text-sky-dark-400 text-sm">Consulta series y registros anteriores.</div>
-                </div>
-                <div class="rounded-2xl bg-sky-dark-950/70 p-4">
-                  <div class="text-sky-dark-100 text-xl font-bold">Información</div>
-                  <div class="text-sky-dark-400 text-sm">Aprende sobre el proyecto y los sensores.</div>
-                </div>
+          </div>
+          <div class="portal-hero-panel glass-effect rounded-3xl p-6 border border-sky-dark-500/30">
+            <div class="text-sky-dark-50 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Panel del portal</div>
+            <div class="space-y-4">
+              <div class="rounded-2xl bg-sky-dark-950/70 p-4">
+                <div class="text-sky-dark-100 text-xl font-bold">Dashboard</div>
+                <div class="text-sky-dark-400 text-sm">Visualiza detecciones en tiempo real.</div>
+              </div>
+              <div class="rounded-2xl bg-sky-dark-950/70 p-4">
+                <div class="text-sky-dark-100 text-xl font-bold">Histórico</div>
+                <div class="text-sky-dark-400 text-sm">Consulta series y registros anteriores.</div>
+              </div>
+              <div class="rounded-2xl bg-sky-dark-950/70 p-4">
+                <div class="text-sky-dark-100 text-xl font-bold">Información</div>
+                <div class="text-sky-dark-400 text-sm">Aprende sobre el proyecto y los sensores.</div>
               </div>
             </div>
           </div>
@@ -97,7 +99,7 @@
 
       <!-- Router view para las diferentes páginas del portal -->
       <div class="space-y-8">
-        <div class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_30px_80px_rgba(15,27,74,0.18)]">
+        <div class="section-card">
           <router-view />
         </div>
       </div>

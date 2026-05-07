@@ -1,9 +1,16 @@
 <template>
-  <div class="page-shell space-y-6">
-    <div class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_24px_60px_rgba(15,27,74,0.18)]">
-      <h2 class="text-2xl font-bold text-sky-dark-50 mb-4">Datos Históricos</h2>
-      
-      <!-- Filtros históricos -->
+  <div class="page-shell space-y-6 section-card">
+    <section class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_24px_60px_rgba(15,27,74,0.18)]">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-6">
+        <div>
+          <h1 class="text-3xl font-bold text-sky-dark-50">Histórico Público</h1>
+          <p class="text-sky-dark-300 mt-2 max-w-2xl">Consulta registros anteriores de detecciones y filtra por sensor o rango de fechas para obtener información del comportamiento del sistema.</p>
+        </div>
+        <div class="rounded-2xl bg-sky-dark-950/70 px-4 py-3 border border-sky-dark-700 text-sky-dark-300 text-sm">
+          Últimos registros disponibles: <span class="text-cyan-300 font-semibold">120</span>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div>
           <label class="block text-sky-dark-300 text-sm font-medium mb-2">Fecha Inicial</label>
@@ -87,7 +94,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
