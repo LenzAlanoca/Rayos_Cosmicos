@@ -1,0 +1,31 @@
+{
+  "name": "rayos-cosmicos-backend",
+  "version": "1.0.0",
+  "description": "Backend Node.js del sistema de monitoreo de rayos cósmicos UMSA con streaming en vivo",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:install": "node src/db/install.js",
+    "ingest": "node src/jobs/ingestLog.js"
+  },
+  "author": "Grupo Rayos Cósmicos - UMSA",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.12.0",
+    "socket.io": "^4.7.5",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
