@@ -120,6 +120,29 @@ input, textarea, select {
   transition: all 0.3s ease;
 }
 
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.page-shell > .glass-effect {
+  background: rgba(17, 30, 68, 0.85);
+}
+
+.page-shell h2,
+.page-shell h3,
+.page-shell h4 {
+  color: #f8fbff;
+}
+
+.page-shell p,
+.page-shell li,
+.page-shell td,
+.page-shell th {
+  color: #cbd5f5;
+}
+
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: #3d5aff;

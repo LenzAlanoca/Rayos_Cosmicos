@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-6">
+  <div class="page-shell space-y-6">
     <!-- Estado de Sensores -->
     <section>
       <h2 class="text-2xl font-bold text-sky-dark-50 mb-4">Estado de Sensores</h2>

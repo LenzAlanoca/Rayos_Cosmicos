@@ -26,6 +26,7 @@
           <a href="#caracteristicas" class="nav-link">Características</a>
           <a href="#info" class="nav-link">Tecnología</a>
           <a href="#sensores" class="nav-link">Sensores</a>
+          <router-link to="/login" class="nav-link">Login</router-link>
           <router-link to="/portal" class="nav-cta">
             <span>Acceder al Portal</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
@@ -241,6 +242,7 @@
           <router-link to="/portal/dashboard">Dashboard</router-link>
           <router-link to="/portal/historico">Histórico</router-link>
           <router-link to="/portal/info">Información</router-link>
+          <router-link to="/login">Iniciar sesión</router-link>
         </div>
         <div class="footer-copy">
           © 2026 UMSA | Todos los derechos reservados

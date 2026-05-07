@@ -1,6 +1,6 @@
 <template>
-  <div class="space-y-6">
-    <div class="glass-effect rounded-lg p-6">
+  <div class="page-shell space-y-6">
+    <div class="glass-effect rounded-3xl p-6 border border-sky-dark-500/20 shadow-[0_24px_60px_rgba(15,27,74,0.18)]">
       <h2 class="text-2xl font-bold text-sky-dark-50 mb-4">Datos Históricos</h2>
       
       <!-- Filtros históricos -->
